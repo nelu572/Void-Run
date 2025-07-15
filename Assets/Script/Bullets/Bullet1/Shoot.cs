@@ -9,6 +9,11 @@ public class Shoot : MonoBehaviour
         this.enabled = false;
     }
 
+    void shooting()
+    {
+        this.enabled = true;
+    }
+
     void Update()
     {
         transform.position += transform.up * Time.deltaTime * Speed;
