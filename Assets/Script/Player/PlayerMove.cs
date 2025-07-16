@@ -6,10 +6,11 @@ public class PlayerMove : MonoBehaviour
 {
     public GameObject GameManager;
     Value value;
-    
+
     public float max_hp = 3;
     float hp;
-    public float Speed = 5;
+    public float max_Speed = 5;
+    float Speed;
     float moveX;
     float moveY;
     Rigidbody2D rb;
@@ -23,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     {
         moveX = Input.GetAxisRaw("Horizontal"); // A, D
         moveY = Input.GetAxisRaw("Vertical");   // W, S
+        if (Input.GetKey(KeyCode.LeftShift)) Speed = max_Speed / 2;
+        else Speed = max_Speed;
         Vector3 moveDirection = new Vector3(moveX, moveY, 0).normalized;
 
         Vector3 move_point = (moveDirection * Time.deltaTime * Speed) + transform.position;
