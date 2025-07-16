@@ -7,8 +7,6 @@ public class PlayerMove : MonoBehaviour
     public GameObject GameManager;
     Value value;
 
-    public float max_hp = 3;
-    float hp;
     public float max_Speed = 5;
     float Speed;
     float moveX;
@@ -16,7 +14,6 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     void Start()
     {
-        hp = max_hp;
         value = GameManager.GetComponent<Value>();
         rb = GetComponent<Rigidbody2D>();
     }
