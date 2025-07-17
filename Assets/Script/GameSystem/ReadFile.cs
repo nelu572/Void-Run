@@ -6,15 +6,16 @@ using UnityEngine;
 public class ReadFile : MonoBehaviour
 {
     Value value;
+    string folder = "Bullets/";
     void Start()
     {
         value = GetComponent<Value>();
-        ReadingFile("BulletsPattern");
+        ReadingFile("Pattern");
 
     }
     void ReadingFile(String file)
     {
-        TextAsset File = Resources.Load<TextAsset>(file);
+        TextAsset File = Resources.Load<TextAsset>(folder + file);
         string[] lines = File.text.Split("\r\n");
         foreach (string line in lines)
         {
@@ -22,7 +23,6 @@ public class ReadFile : MonoBehaviour
             if (line[0] == '/') continue;
             if (line[0] >= 'a' && line[0] <= 'z' || (line[0] >= 'A' && line[0] <= 'Z'))
             {
-                Debug.Log(line.Length);
                 ReadingFile(line);
                 continue;
             }
