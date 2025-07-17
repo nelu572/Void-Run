@@ -1,4 +1,6 @@
+using System;
 using Unity.Android.Gradle;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReadFile : MonoBehaviour
@@ -7,14 +9,23 @@ public class ReadFile : MonoBehaviour
     void Start()
     {
         value = GetComponent<Value>();
+        ReadingFile("BulletsPattern");
 
-        TextAsset File = Resources.Load<TextAsset>("BulletsPattern");
-        string[] lines = File.text.Split('\n');
+    }
+    void ReadingFile(String file)
+    {
+        TextAsset File = Resources.Load<TextAsset>(file);
+        string[] lines = File.text.Split("\r\n");
         foreach (string line in lines)
         {
             if (string.IsNullOrWhiteSpace(line)) continue;
             if (line[0] == '/') continue;
-
+            if (line[0] >= 'a' && line[0] <= 'z' || (line[0] >= 'A' && line[0] <= 'Z'))
+            {
+                Debug.Log(line.Length);
+                ReadingFile(line);
+                continue;
+            }
             string[] parts = line.Trim().Split(';');
 
             float time = float.Parse(parts[0]);
