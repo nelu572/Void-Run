@@ -1,3 +1,4 @@
+using Unity.Android.Gradle;
 using UnityEngine;
 
 public class ReadFile : MonoBehaviour
@@ -12,6 +13,7 @@ public class ReadFile : MonoBehaviour
         foreach (string line in lines)
         {
             if (string.IsNullOrWhiteSpace(line)) continue;
+            if (line[0] == '/') continue;
 
             string[] parts = line.Trim().Split(';');
 
