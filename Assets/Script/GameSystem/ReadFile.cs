@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class ReadFile : MonoBehaviour
 {
+    public string pattern;
     Value value;
-    string folder = "Bullets/";
     void Start()
     {
         value = GetComponent<Value>();
-        ReadingFile("Pattern");
+        ReadingFile(pattern);
 
     }
     void ReadingFile(String file)
     {
-        TextAsset File = Resources.Load<TextAsset>(folder + file);
+        TextAsset File = Resources.Load<TextAsset>(file);
         string[] lines = File.text.Split("\r\n");
         foreach (string line in lines)
         {
