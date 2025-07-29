@@ -11,15 +11,6 @@ public class Value : MonoBehaviour
     public float x_boundary;
     public float y_boundary;
 
-    public class BulletData
-    {
-        public float time;
-        public Vector2 pos;
-        public int dir;
-        public int type;
-    }
-    public List<BulletData> Bullets = new List<BulletData>();
-
     void Start()
     {
         Map_SIZE = new Vector2(Ground.transform.localScale.x, Ground.transform.localScale.y);

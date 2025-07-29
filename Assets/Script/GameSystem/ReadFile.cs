@@ -1,31 +1,23 @@
 using System;
-using Unity.Android.Gradle;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ReadFile : MonoBehaviour
 {
-    public string pattern;
-    Value value;
+    public List<TextAsset> Files;
+    Bullet bullet;
     void Start()
     {
-        value = GetComponent<Value>();
-        ReadingFile(pattern);
-
+        bullet = GetComponent<Bullet>();
+        foreach(TextAsset File in Files){
+            string[] lines = File.text.Split("\r\n");            
+            if(lines[0]=="Bullet1") Bullet1(lines);
+        }
     }
-    void ReadingFile(String file)
-    {
-        TextAsset File = Resources.Load<TextAsset>(file);
-        string[] lines = File.text.Split("\r\n");
-        foreach (string line in lines)
-        {
-            if (string.IsNullOrWhiteSpace(line)) continue;
-            if (line[0] == '/') continue;
-            if (line[0] >= 'a' && line[0] <= 'z' || (line[0] >= 'A' && line[0] <= 'Z'))
-            {
-                ReadingFile(line);
-                continue;
-            }
+    void Bullet1(string[] lines){
+        foreach(string line in lines){
+            if (string.IsNullOrWhiteSpace(line) || line == "Bullets1") continue;
+
             string[] parts = line.Trim().Split(';');
 
             float time = float.Parse(parts[0]);
@@ -36,16 +28,17 @@ public class ReadFile : MonoBehaviour
 
             int dir = int.Parse(parts[2]);
             int type = int.Parse(parts[3]);
-
-            Value.BulletData row = new Value.BulletData
+            float speed = float.Parse(parts[4]);
+            Bullet.Bullet1Data row = new Bullet.Bullet1Data
             {
                 time = time,
                 pos = pos,
                 dir = dir,
-                type = type
+                type = type,
+                speed = speed
             };
 
-            value.Bullets.Add(row);
+            bullet.Bullet1.Add(row);
         }
     }
 }
