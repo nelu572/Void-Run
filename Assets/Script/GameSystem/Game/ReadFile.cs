@@ -29,14 +29,12 @@ public class ReadFile : MonoBehaviour
             Vector2 pos = new Vector2(x, y);
 
             int dir = int.Parse(parts[2]);
-            int type = int.Parse(parts[3]);
-            float speed = float.Parse(parts[4]);
+            float speed = float.Parse(parts[3]);
             Bullet.Bullet1Data row = new Bullet.Bullet1Data
             {
                 time = time,
                 pos = pos,
                 dir = dir,
-                type = type,
                 speed = speed
             };
 
