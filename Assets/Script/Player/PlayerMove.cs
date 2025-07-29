@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject GameManager;
+    public GameObject ValueManager;
     Value value;
 
     public float max_Speed = 5;
@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     void Start()
     {
-        value = GameManager.GetComponent<Value>();
+        value = ValueManager.GetComponent<Value>();
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()

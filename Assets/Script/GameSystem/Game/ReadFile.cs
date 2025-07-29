@@ -1,23 +1,25 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ReadFile : MonoBehaviour
 {
     public List<TextAsset> Files;
+    public GameObject ValueManager;
     Bullet bullet;
     void Start()
     {
-        bullet = GetComponent<Bullet>();
-        foreach(TextAsset File in Files){
-            string[] lines = File.text.Split("\r\n");            
-            if(lines[0]=="Bullet1") Bullet1(lines);
+        bullet = ValueManager.GetComponent<Bullet>();
+        foreach (TextAsset File in Files)
+        {
+            string[] lines = File.text.Split("\r\n");
+            if (lines[0] == "Bullet1") Bullet1(lines);
         }
     }
-    void Bullet1(string[] lines){
-        foreach(string line in lines){
-            if (string.IsNullOrWhiteSpace(line) || line == "Bullets1") continue;
-
+    void Bullet1(string[] lines)
+    {
+        foreach (string line in lines)
+        {
+            if (string.IsNullOrWhiteSpace(line) || line == "Bullet1") continue;
             string[] parts = line.Trim().Split(';');
 
             float time = float.Parse(parts[0]);
