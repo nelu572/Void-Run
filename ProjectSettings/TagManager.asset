@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Bullets
-  - MainTXT
+  - NoPostProcessing
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: NoPostProcessing
+    uniqueID: 2652703619
     locked: 0
   m_RenderingLayers:
   - Default
