@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 476651954}
   - component: {fileID: 476651956}
   - component: {fileID: 476651957}
+  - component: {fileID: 476651958}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -324,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff0074f7fd334144859a440fc5a721d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsData: {fileID: 11400000, guid: 878b242f86c0fbd47827fcbc4bef8d8b, type: 2}
 --- !u!4 &476651955
 Transform:
   m_ObjectHideFlags: 0
@@ -355,6 +357,7 @@ MonoBehaviour:
   - {fileID: 21949289}
   - {fileID: 1037105297}
   - {fileID: 1843494204}
+  Selected_Index: 0
 --- !u!114 &476651957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +373,22 @@ MonoBehaviour:
   Effects:
   - {fileID: 1924296949378121287, guid: cdb09e5db78428d40a0cca52f5d543bc, type: 3}
   parentObject: {fileID: 1402220763}
+--- !u!114 &476651958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476651953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffabf7425545e34f88a011d7a4d68a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSelected: {fileID: 476651956}
+  Scenes:
+  - StageSelectScene
+  - OptionsScene
 --- !u!1 &615422446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,8 +1132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 460, y: 0}
-  m_SizeDelta: {x: -1320, y: -340}
+  m_AnchoredPosition: {x: 485, y: 0}
+  m_SizeDelta: {x: -1270, y: -340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325030718
 MonoBehaviour:
@@ -2163,7 +2182,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: ef307899d5f2c4347bd2a530a1c62135, type: 2}
+  sharedProfile: {fileID: 11400000, guid: e7d809b4230263d47be393604b8b3d28, type: 2}
 --- !u!4 &2023588429
 Transform:
   m_ObjectHideFlags: 0

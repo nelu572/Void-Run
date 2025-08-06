@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class IconMove : MonoBehaviour
 {
+    public SettingsData settingsData;
+
     public List<TextMeshProUGUI> Setting_Values;
     public List<GameObject> Setting_LeftArrows;
     public List<GameObject> Setting_RightArrows;
@@ -38,6 +40,7 @@ public class IconMove : MonoBehaviour
 
     void Update()
     {
+
         int before_index = index;
         List<Vector3> before_con = condition;
         if (Input.GetKeyDown(KeyCode.Return))
@@ -83,9 +86,16 @@ public class IconMove : MonoBehaviour
                 if (index == 2)
                 {
                     if (Setting_Values[index].text == "OFF")
+                    {
+                        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                        Screen.fullScreen = true;
                         Setting_Values[index].text = "ON";
+                    }
                     else
+                    {
+                        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
                         Setting_Values[index].text = "OFF";
+                    }
                 }
                 else
                 {
@@ -120,9 +130,16 @@ public class IconMove : MonoBehaviour
                 if (index == 2)
                 {
                     if (Setting_Values[index].text == "OFF")
+                    {
+                        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                        Screen.fullScreen = true;
                         Setting_Values[index].text = "ON";
+                    }
                     else
+                    {
+                        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
                         Setting_Values[index].text = "OFF";
+                    }
                 }
                 else
                 {
@@ -181,6 +198,10 @@ public class IconMove : MonoBehaviour
                 Mode_animation();
             }
         }
+
+        settingsData.Music = int.Parse(Setting_Values[0].text);
+        settingsData.SFX = int.Parse(Setting_Values[1].text);
+        settingsData.LifeCount = int.Parse(Mode_Values[0].text);
     }
     void Act()
     {
