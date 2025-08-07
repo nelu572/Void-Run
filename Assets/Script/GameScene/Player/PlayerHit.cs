@@ -1,18 +1,26 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
+
+    public SettingsData settingsData;
+
+    public List<GameObject> HP_Icon;
+
     Animator anim;
 
-    public float max_hp = 3;
+    float max_hp;
     float hp;
 
     public float invTime = 3;
     float i_time = 0;
     void Start()
     {
+        max_hp = settingsData.LifeCount;
         anim = GetComponent<Animator>();
         hp = max_hp;
+        IconDel();
     }
     void Update()
     {
@@ -27,13 +35,21 @@ public class PlayerHit : MonoBehaviour
             }
         }
     }
+    void IconDel()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if (hp < i) HP_Icon[i - 1].SetActive(false);
+            else HP_Icon[i - 1].SetActive(true);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullets") && i_time == 0)
         {
             hp--;
-            if (hp <= 0) Debug.Log(hp);
-
+            if (hp <= 0) Debug.Log("님 주금");
+            IconDel();
             i_time = invTime;
             anim.SetBool("Hit", true);
         }

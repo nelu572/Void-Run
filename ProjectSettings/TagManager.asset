@@ -15,7 +15,7 @@ TagManager:
   - NoPostProcessing
   - Effect
   - BackGround
-  - 
+  - Player
   - 
   - 
   - 
@@ -50,8 +50,11 @@ TagManager:
   - name: UI
     uniqueID: 2927645249
     locked: 0
-  - name: NoPostProcessing
+  - name: NoPP
     uniqueID: 2652703619
+    locked: 0
+  - name: Player
+    uniqueID: 3048128703
     locked: 0
   m_RenderingLayers:
   - Default

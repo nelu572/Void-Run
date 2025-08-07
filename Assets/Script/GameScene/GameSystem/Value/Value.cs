@@ -21,7 +21,7 @@ public class Value : MonoBehaviour
     }
     public void Fix_MapSize()
     {
-        Map_SIZE = new Vector2(Ground.transform.localScale.x, Ground.transform.localScale.y);
+        Map_SIZE = new Vector2(Ground.transform.localScale.x / 108, Ground.transform.localScale.y / 108);
         Player_SIZE = new Vector2(Player.transform.localScale.x, Player.transform.localScale.y);
         x_boundary = Map_SIZE.x / 2 - Player_SIZE.x / 2;
         y_boundary = Map_SIZE.y / 2 - Player_SIZE.y / 2;
