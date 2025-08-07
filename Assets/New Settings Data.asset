@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f15be4db89d42843adb57d6be1d6e78, type: 3}
   m_Name: New Settings Data
   m_EditorClassIdentifier: 
-  Music: 6
+  Music: 0
   SFX: 0
   LifeCount: 2

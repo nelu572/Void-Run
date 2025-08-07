@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Bullet1Move : MonoBehaviour
 {
     public float Speed = 7;
     void Start()

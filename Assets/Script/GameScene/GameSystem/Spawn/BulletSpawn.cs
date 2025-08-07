@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BulletSpawn : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class BulletSpawn : MonoBehaviour
     Bullet bullets;
 
     [SerializeField] Bullet1 bullet1;
+    [SerializeField] Bullet2 bullet2;
     float t = 0;
     void Start()
     {
@@ -19,6 +19,7 @@ public class BulletSpawn : MonoBehaviour
     {
         t = value.time;
         bullet1.Spawn(bullets.Bullet1, t);
+        bullet2.Spawn(bullets.Bullet2, t);
     }
     [System.Serializable]
     private class Bullet1
@@ -34,10 +35,29 @@ public class BulletSpawn : MonoBehaviour
                 {
                     Vector3 pos = new Vector3(Pattern[index].pos.x, Pattern[index].pos.y, 0);
                     Quaternion dir = Quaternion.Euler(0, 0, Pattern[index].dir);
-                    Debug.Log(bullet);
                     GameObject obj = Instantiate(bullet, pos, dir);
-                    Shoot shoot = obj.GetComponent<Shoot>();
+                    Bullet1Move shoot = obj.GetComponent<Bullet1Move>();
                     if (shoot != null) shoot.Speed = Pattern[index].speed;
+                    index++;
+                }
+            }
+        }
+    }
+    [System.Serializable]
+    private class Bullet2
+    {
+        int index = 0;
+        public GameObject bullet;
+
+        public void Spawn(List<Bullet.Bullet2Data> Pattern, float t)
+        {
+            if (index < Pattern.Count)
+            {
+                if (Pattern[index].time < t)
+                {
+                    Vector3 pos = new Vector3(Pattern[index].pos.x, Pattern[index].pos.y, 0);
+                    Quaternion dir = Quaternion.Euler(0, 0, Pattern[index].dir);
+                    Instantiate(bullet, pos, dir);
                     index++;
                 }
             }
