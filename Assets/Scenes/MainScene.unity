@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSelected: {fileID: 476651956}
   Scenes:
-  - StageSelectScene
+  - GameScene
   - OptionsScene
 --- !u!1 &615422446
 GameObject:

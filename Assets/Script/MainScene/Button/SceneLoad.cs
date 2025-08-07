@@ -15,11 +15,11 @@ public class SceneLoad : MonoBehaviour
         {
             if (input == 2)
             {
-                #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false; // 에디터에서 실행 중일 때
-                #else
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false; // 에디터에서 실행 중일 때
+#else
                     Application.Quit(); // 빌드된 게임 실행 중일 때
-                #endif
+#endif
             }
             else
             {

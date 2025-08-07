@@ -34,6 +34,7 @@ public class IconMove : MonoBehaviour
         index = 0;
         condition = Kategorie_pos;
         transform.position = condition[index];
+        FixSetting();
         Act();
         Kategorie_animation();
     }
@@ -281,5 +282,27 @@ public class IconMove : MonoBehaviour
                 Mode_animators[i].SetBool("Pressed", false);
             }
         }
+    }
+    void FixSetting()
+    {
+        Setting_Values[0].text = settingsData.Music.ToString();
+        if (settingsData.Music == 0) Setting_LeftArrows[0].SetActive(false);
+        else Setting_LeftArrows[0].SetActive(true);
+        if (settingsData.Music == 10) Setting_RightArrows[0].SetActive(false);
+        else Setting_RightArrows[0].SetActive(true);
+
+
+        Setting_Values[1].text = settingsData.SFX.ToString();
+        if (settingsData.SFX == 0) Setting_LeftArrows[1].SetActive(false);
+        else Setting_LeftArrows[1].SetActive(true);
+        if (settingsData.SFX == 10) Setting_RightArrows[1].SetActive(false);
+        else Setting_RightArrows[1].SetActive(true);
+
+        Mode_Values[0].text = settingsData.LifeCount.ToString();
+        if (settingsData.LifeCount == 1) Mode_LeftArrows[0].SetActive(false);
+        else Mode_LeftArrows[0].SetActive(true);
+        if (settingsData.LifeCount == 5) Mode_RightArrows[0].SetActive(false);
+        else Mode_RightArrows[0].SetActive(true);
+
     }
 }
