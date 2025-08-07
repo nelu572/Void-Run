@@ -720,11 +720,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsData: {fileID: 11400000, guid: 878b242f86c0fbd47827fcbc4bef8d8b, type: 2}
   HP_Icon:
-  - {fileID: 1566054507}
-  - {fileID: 1927442477}
-  - {fileID: 1297841871}
-  - {fileID: 227499520}
   - {fileID: 277451930}
+  - {fileID: 227499520}
+  - {fileID: 1297841871}
+  - {fileID: 1927442477}
+  - {fileID: 1566054507}
   invTime: 2
 --- !u!95 &505578425
 Animator:
