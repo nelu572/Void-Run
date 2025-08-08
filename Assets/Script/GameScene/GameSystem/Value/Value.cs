@@ -17,7 +17,7 @@ public class Value : MonoBehaviour
     }
     void Update()
     {
-        time = Time.deltaTime;
+        time += Time.deltaTime;
     }
     public void Fix_MapSize()
     {

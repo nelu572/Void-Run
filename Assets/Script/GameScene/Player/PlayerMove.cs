@@ -7,8 +7,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject ValueManager;
     Value value;
 
-    public float max_Speed = 5;
-    float Speed;
+    public float Speed = 5;
     float moveX;
     float moveY;
     Rigidbody2D rb;

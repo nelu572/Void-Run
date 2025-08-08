@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Music: 0
   SFX: 0
-  LifeCount: 2
+  LifeCount: 5

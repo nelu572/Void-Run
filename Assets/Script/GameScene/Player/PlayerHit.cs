@@ -8,6 +8,8 @@ public class PlayerHit : MonoBehaviour
 
     public List<GameObject> HP_Icon;
 
+    public List<Animator> HP_Anima;
+
     Animator anim;
 
     float max_hp;
@@ -43,13 +45,21 @@ public class PlayerHit : MonoBehaviour
             else HP_Icon[i - 1].SetActive(true);
         }
     }
+    void IconAnimation()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if (hp < i) HP_Anima[i - 1].SetBool("empty", true);
+            else HP_Anima[i - 1].SetBool("empty", false);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullets") && i_time == 0)
         {
             hp--;
             if (hp <= 0) Debug.Log("님 주금");
-            IconDel();
+            IconAnimation();
             i_time = invTime;
             anim.SetBool("Hit", true);
         }
