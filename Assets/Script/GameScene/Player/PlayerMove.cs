@@ -21,8 +21,6 @@ public class PlayerMove : MonoBehaviour
     {
         moveX = Input.GetAxisRaw("Horizontal"); // A, D
         moveY = Input.GetAxisRaw("Vertical");   // W, S
-        if (Input.GetKey(KeyCode.LeftShift)) Speed = max_Speed / 2;
-        else Speed = max_Speed;
         Vector3 moveDirection = new Vector3(moveX, moveY, 0).normalized;
 
         Vector3 move_point = (moveDirection * Time.deltaTime * Speed) + transform.position;
