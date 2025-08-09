@@ -39,6 +39,7 @@ public class BulletSpawn : MonoBehaviour
                     Bullet1Move shoot = obj.GetComponent<Bullet1Move>();
                     if (shoot != null) shoot.Speed = Pattern[index].speed;
                     index++;
+                    Spawn(Pattern, t);
                 }
             }
         }
@@ -59,6 +60,7 @@ public class BulletSpawn : MonoBehaviour
                     Quaternion dir = Quaternion.Euler(0, 0, Pattern[index].dir);
                     Instantiate(bullet, pos, dir);
                     index++;
+                    Spawn(Pattern, t);
                 }
             }
         }
